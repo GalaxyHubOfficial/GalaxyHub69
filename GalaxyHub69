@@ -26,7 +26,7 @@ if game.PlaceId == 155615604 then
             module["FireRate"] = 0.2
             module["Spread"] = 0
             module["Range"] = math.huge
-            module["Bullets"] = 10
+            module["Bullets"] = 2
             module["ReloadTime"] = 0.1
             module["AutoFire"] = true
         end
@@ -43,6 +43,11 @@ if game.PlaceId == 155615604 then
     PlayerSection:NewSlider("Jumppower", "Changes the jumppower", 250, 50, function(v)
         game.Players.LocalPlayer.Character.Humanoid.JumpPower = v
     end)
+MainSection:NewKeybind("ToggleUI", "Togles UI", Enum.KeyCode.F, function(t)
+	Library:ToggleUI(t)
+end)
+
+
 elseif game.PlaceId == 3956818381 then
     local Library = loadstring(game:HttpGet("https://raw.githubusercontent.com/xHeptc/Kavo-UI-Library/main/source.lua"))()
     local Window = Library.CreateLib("Ninja Legends | Galaxy Hub", "BloodTheme")
@@ -112,6 +117,10 @@ elseif game.PlaceId == 3956818381 then
             wait(0.5)
         end
     end)
+MainSection:NewKeybind("ToggleUI", "Togles UI", Enum.KeyCode.F, function(t)
+	Library:ToggleUI(t)
+end)
+
 elseif Game.PlaceId == 6859865958 then
 print("Working Wait You Impatient Little Shi-")
 local Library = loadstring(game:HttpGet("https://raw.githubusercontent.com/xHeptc/Kavo-UI-Library/main/source.lua"))()
@@ -158,5 +167,54 @@ end)
     PlayerSection:NewSlider("Jumppower", "Patched", 250, 50, function(v)
         game.Players.LocalPlayer.Character.Humanoid.JumpPower = v
     end)
+
+MainSection:NewKeybind("ToggleUI", "Togles UI", Enum.KeyCode.F, function(t)
+	Library:ToggleUI(t)
+end)
+
+
+else
+local Library = loadstring(game:HttpGet("https://raw.githubusercontent.com/xHeptc/Kavo-UI-Library/main/source.lua"))()
+local Window = Library.CreateLib("Mercenary Pack", "BloodTheme")
+local Main = Window:NewTab("Main")
+local MainSection = Main:NewSection("Give Special Items")
+MainSection:NewButton("Give Click TP", "Gives Click Teleport", function(g)
+    mouse = game.Players.LocalPlayer:GetMouse()
+tool = Instance.new("Tool")
+tool.RequiresHandle = false
+tool.Name = "Click Teleport"
+tool.Activated:connect(function()
+local pos = mouse.Hit+Vector3.new(0,2.5,0)
+pos = CFrame.new(pos.X,pos.Y,pos.Z)
+game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = pos
+end)
+tool.Parent = game.Players.LocalPlayer.Backpack
+
+end)
+
+MainSection:NewButton("Enable e To Noclip", "lol", function(n)
+    print('Loaded Noclip')
+print('Press "E" to noclip')
+
+noclip = false
+game:GetService('RunService').Stepped:connect(function()
+if noclip then
+game.Players.LocalPlayer.Character.Humanoid:ChangeState(11)
+end
+end)
+plr = game.Players.LocalPlayer
+mouse = plr:GetMouse()
+mouse.KeyDown:connect(function(key)
+
+if key == "e" then
+noclip = not noclip
+game.Players.LocalPlayer.Character.Humanoid:ChangeState(11)
+end
+end)
+end)
+MainSection:NewKeybind("ToggleUI", "Togles UI", Enum.KeyCode.F, function(t)
+	Library:ToggleUI(t)
+end)
+
 
 end
