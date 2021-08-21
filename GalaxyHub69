@@ -181,7 +181,9 @@ local AutoplayerSection = AutoplayerTab:NewSection("Autofarm")
 AutoplayerSection:NewButton("Autoplayer By Wally", "OP Use It (Krnl Only)", function(p)
 loadstring(game:HttpGet("https://raw.githubusercontent.com/wally-rblx/funky-friday-autoplay/main/main.lua",true))()
 end)
-
+MainSection:NewKeybind("ToggleUI", "Toggles UI", Enum.KeyCode.M, function(t)
+	Library:ToggleUI(t)
+end)
 
 else
 local Library = loadstring(game:HttpGet("https://raw.githubusercontent.com/xHeptc/Kavo-UI-Library/main/source.lua"))()
