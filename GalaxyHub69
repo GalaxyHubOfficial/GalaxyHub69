@@ -173,22 +173,13 @@ MainSection:NewKeybind("ToggleUI", "Togles UI", Enum.KeyCode.F, function(t)
 end)
 
 
-elseif Game.PlaceId == 2577423786 then
+elseif Game.PlaceId == 6447798030 then
 local Library = loadstring(game:HttpGet("https://raw.githubusercontent.com/xHeptc/Kavo-UI-Library/main/source.lua"))()
-local Window = Library.CreateLib("Superhero Simulator", "BloodTheme")
-local AutofarmTab = Window:NewTab("AutoFarm")
-local AutofarmSection = AutofarmTab:NewSection("Autofarm")
-Section:NewButton("Coin Farm", "OP Use It", function(f)
-   while wait(.1) do 
-for i, v in pairs(game.Workspace.CoinSpawners:GetChildren()) do
-wait (0.01)
-game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = v.CFrame
-end
-end
-end)
-
-AutofarmSection:NewKeybind("ToggleUI", "Toggles UI", Enum.KeyCode.t, function(t)
-	Library:ToggleUI(t)
+local Window = Library.CreateLib("Funky Friday | Galaxy Hub", "BloodTheme")
+local AutoplayerTab = Window:NewTab("AutoPlayer")
+local AutoplayerSection = AutoplayerTab:NewSection("Autofarm")
+AutoplayerSection:NewButton("Autoplayer By Wally", "OP Use It (Krnl Only)", function(p)
+loadstring(game:HttpGet("https://raw.githubusercontent.com/wally-rblx/funky-friday-autoplay/main/main.lua",true))()
 end)
 
 
